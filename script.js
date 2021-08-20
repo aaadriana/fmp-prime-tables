@@ -35,11 +35,47 @@ function primeGenerator(limit) {
   return primeNumbers;
 }
 
+function renderTable(list) {
+  var result = "<table><tr><td class='sticky-column sticky-row'>x</td>";
+
+  // our table needs to have n+1 columns and n+1 rows; I'm adding a dummy '0' at the beginning of this array in order to achieve this
+  list.unshift(0);
+
+  list.forEach((i) => {
+    list.forEach((j) => {
+      if (i === 0 && j > 0) {
+        result += `<td class='sticky-row'>[${j}]</td>`;
+      }
+
+      if (j === 0 && i > 0) {
+        result += `<td class='sticky-column'>[${i}]</td>`;
+      }
+
+      if (i > 0 && j > 0) {
+        result += `<td>${i * j}</td>`;
+      }
+    });
+    result += "</tr>";
+  });
+
+  result += "</table>";
+
+  return result;
+}
+
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   const t0 = performance.now();
-  const result = primeGenerator(input.value);
+
+  // get the list of generated primes
+  const primeList = primeGenerator(input.value);
+
+  // render the table
+  const result = renderTable(primeList);
+
   const t1 = performance.now();
   console.log(`Performance: ${t1 - t0}ms`);
-  document.querySelector("#result").textContent = result;
+
+  // add the table to the HTML
+  document.querySelector("#result").innerHTML = result;
 });

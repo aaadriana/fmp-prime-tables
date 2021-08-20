@@ -8,14 +8,14 @@
     <script defer src="script.js"></script>
   </head>
   <body>
-    <div class="container">
+    <div class="main-container">
       <div class="modal">
         <h1>Multiplication Table</h1>
         <h2>of Prime Numbers</h2>
 
         <form id="form" action="" method="GET" class="form">
           <label for="primes"
-            ><p>Please, type how many prime numbers you want!</p></label
+            ><p>Please type how many prime numbers you want!</p></label
           >
           <input
             type="number"
@@ -27,10 +27,10 @@
           />
 
           <button id="submit" type="submit" class="btn">
-            Show me my prime numbers
+            Show me my table
           </button>
         </form>
-        <div id="result"></div>
+        <div id="result" class="result-container"></div>
       </div>
     </div>
   </body>
