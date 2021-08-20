@@ -1,3 +1,8 @@
+const button = document.querySelector("#submit");
+const form = document.querySelector("#form");
+const input = document.querySelector("#number");
+input.focus();
+
 // basic prime numbers generator
 function primeGenerator(limit) {
   const primeNumbers = [];
@@ -30,7 +35,11 @@ function primeGenerator(limit) {
   return primeNumbers;
 }
 
-const t0 = performance.now();
-console.log(primeGenerator(10));
-const t1 = performance.now();
-console.log(`Performance: ${t1 - t0}ms`);
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const t0 = performance.now();
+  const result = primeGenerator(input.value);
+  const t1 = performance.now();
+  console.log(`Performance: ${t1 - t0}ms`);
+  document.querySelector("#result").textContent = result;
+});
