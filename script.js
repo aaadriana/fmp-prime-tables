@@ -5,6 +5,8 @@ input.focus();
 
 // basic prime numbers generator
 function primeGenerator(limit) {
+  if (typeof limit !== "number") return [];
+
   const primeNumbers = [];
 
   // we start from 2 because 2 is the first possible prime number
@@ -36,6 +38,10 @@ function primeGenerator(limit) {
 }
 
 function renderTable(list) {
+  if (!Array.isArray(list)) return "";
+  if (!list.length) return "";
+  if (list.some((el) => typeof el !== "number")) return "";
+
   var result = "<table><tr><td class='sticky-column sticky-row'>x</td>";
 
   // our table needs to have n+1 columns and n+1 rows; I'm adding a dummy '0' at the beginning of this array in order to achieve this
