@@ -5,7 +5,7 @@ input.focus();
 
 // basic prime numbers generator
 function primeGenerator(limit) {
-  if (typeof limit !== "number") return [];
+  if (!Number.isInteger(limit)) return [];
 
   const primeNumbers = [];
 
@@ -40,7 +40,7 @@ function primeGenerator(limit) {
 function renderTable(list) {
   if (!Array.isArray(list)) return "";
   if (!list.length) return "";
-  if (list.some((el) => typeof el !== "number")) return "";
+  if (list.some((el) => !Number.isInteger(el))) return "";
 
   var result = "<table><tr><td class='sticky-column sticky-row'>x</td>";
 
@@ -74,7 +74,7 @@ form.addEventListener("submit", function (e) {
   const t0 = performance.now();
 
   // get the list of generated primes
-  const primeList = primeGenerator(input.value);
+  const primeList = primeGenerator(parseInt(input.value));
 
   // render the table
   const result = renderTable(primeList);
