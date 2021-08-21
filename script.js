@@ -1,7 +1,25 @@
-const button = document.querySelector("#submit");
 const form = document.querySelector("#form");
 const input = document.querySelector("#number");
+
+form.addEventListener("submit", formSubmit);
 input.focus();
+
+function formSubmit(e) {
+  e.preventDefault();
+  const t0 = performance.now();
+
+  // get the list of generated primes
+  const primeList = primeGenerator(parseInt(input.value));
+
+  // generate the table
+  const tableContent = generateTable(primeList);
+
+  // add the table to HTML
+  renderTable(tableContent);
+
+  const t1 = performance.now();
+  console.log(`Performance: ${t1 - t0}ms`);
+}
 
 // basic prime numbers generator
 function primeGenerator(limit) {
@@ -37,7 +55,7 @@ function primeGenerator(limit) {
   return primeNumbers;
 }
 
-function renderTable(list) {
+function generateTable(list) {
   if (!Array.isArray(list)) return "";
   if (!list.length) return "";
   if (list.some((el) => !Number.isInteger(el))) return "";
@@ -69,19 +87,6 @@ function renderTable(list) {
   return result;
 }
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  const t0 = performance.now();
-
-  // get the list of generated primes
-  const primeList = primeGenerator(parseInt(input.value));
-
-  // render the table
-  const result = renderTable(primeList);
-
-  const t1 = performance.now();
-  console.log(`Performance: ${t1 - t0}ms`);
-
-  // add the table to the HTML
-  document.querySelector("#result").innerHTML = result;
-});
+function renderTable(content) {
+  document.querySelector("#result").innerHTML = content;
+}

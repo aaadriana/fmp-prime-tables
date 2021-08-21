@@ -19,18 +19,18 @@ test("primeGenerator should always return an array", () => {
   );
 });
 
-test("renderTable should always return a string", () => {
-  equal(renderTable(1), "");
-  equal(renderTable({}), "");
-  equal(renderTable(true), "");
-  equal(renderTable("string"), "");
-  equal(renderTable([]), "");
+test("generateTable should always return a string", () => {
+  equal(generateTable(1), "");
+  equal(generateTable({}), "");
+  equal(generateTable(true), "");
+  equal(generateTable("string"), "");
+  equal(generateTable([]), "");
   equal(
-    renderTable([2, 3, 5, 7, 11]),
+    generateTable([2, 3, 5, 7, 11]),
     "<table><tr><td class='sticky-column sticky-row'>x</td><td class='sticky-row'>[2]</td><td class='sticky-row'>[3]</td><td class='sticky-row'>[5]</td><td class='sticky-row'>[7]</td><td class='sticky-row'>[11]</td></tr><td class='sticky-column'>[2]</td><td>4</td><td>6</td><td>10</td><td>14</td><td>22</td></tr><td class='sticky-column'>[3]</td><td>6</td><td>9</td><td>15</td><td>21</td><td>33</td></tr><td class='sticky-column'>[5]</td><td>10</td><td>15</td><td>25</td><td>35</td><td>55</td></tr><td class='sticky-column'>[7]</td><td>14</td><td>21</td><td>35</td><td>49</td><td>77</td></tr><td class='sticky-column'>[11]</td><td>22</td><td>33</td><td>55</td><td>77</td><td>121</td></tr></table>"
   );
   equal(
-    renderTable([2, 3, 5]),
+    generateTable([2, 3, 5]),
     "<table><tr><td class='sticky-column sticky-row'>x</td><td class='sticky-row'>[2]</td><td class='sticky-row'>[3]</td><td class='sticky-row'>[5]</td></tr><td class='sticky-column'>[2]</td><td>4</td><td>6</td><td>10</td></tr><td class='sticky-column'>[3]</td><td>6</td><td>9</td><td>15</td></tr><td class='sticky-column'>[5]</td><td>10</td><td>15</td><td>25</td></tr></table>"
   );
 });
