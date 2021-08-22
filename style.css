@@ -13,6 +13,7 @@ body {
 label {
   font-size: 1.4rem;
   font-weight: 500;
+  font-style: italic;
 }
 
 input {
@@ -24,12 +25,12 @@ input {
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: 2.4rem;
   line-height: 1;
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 1.4rem;
   line-height: 1;
 }
 
@@ -42,10 +43,8 @@ h2 {
 
 .main-container {
   position: relative;
-  top: 20px; /* This will move it 20px up */
-  left: -140px;
-  justify-content: center;
-  height: 100%;
+  top: 20px; /* This will move it 20px down */
+  right: 140px;
   width: 100%;
   max-width: 580px;
   float: right;
@@ -62,10 +61,10 @@ h2 {
   display: inline-block;
   background-color: #398982;
   color: white;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-family: inherit;
   border: none;
-  padding: 1.25rem 1.25rem;
+  padding: 1rem 1rem;
   border-radius: 10rem;
   cursor: pointer;
 }
@@ -73,20 +72,31 @@ h2 {
 table td {
   text-align: center;
   padding: 5px;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.sticky-row,
+.sticky-column {
+  position: sticky;
+  background-color: #398982;
+  color: white;
 }
 
 .sticky-column {
-  position: sticky;
   left: 0px;
-  background: #398982;
-  color: white;
-  border-radius: 5px;
 }
 
 .sticky-row {
-  position: sticky;
   top: 0px;
-  background: #398982;
-  color: white;
-  border-radius: 5px;
+}
+
+.sticky-row.sticky-column {
+  background: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .main-container {
+    right: auto;
+  }
 }
