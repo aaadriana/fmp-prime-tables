@@ -5,11 +5,13 @@
   "main": "script.js",
   "dependencies": {},
   "devDependencies": {
+    "http-server": "^13.0.1",
     "jest": "^27.0.6",
     "jest-esm-transformer": "^1.0.0"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "http-server"
   },
   "repository": {
     "type": "git",
