@@ -1,0 +1,24 @@
+{
+  "name": "fmp-prime-tables",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^27.0.6",
+    "jest-esm-transformer": "^1.0.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaadriana/fmp-prime-tables.git"
+  },
+  "author": "aaadriana",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aaadriana/fmp-prime-tables/issues"
+  },
+  "homepage": "https://github.com/aaadriana/fmp-prime-tables#readme"
+}
