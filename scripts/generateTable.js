@@ -11,11 +11,11 @@ function generateTable(list) {
   list.forEach((i) => {
     list.forEach((j) => {
       if (i === 0 && j > 0) {
-        result += `<td class='sticky-row'>[${j}]</td>`;
+        result += `<td class='sticky-row'>${j}</td>`;
       }
 
       if (j === 0 && i > 0) {
-        result += `<td class='sticky-column'>[${i}]</td>`;
+        result += `<td class='sticky-column'>${i}</td>`;
       }
 
       if (i > 0 && j > 0) {
